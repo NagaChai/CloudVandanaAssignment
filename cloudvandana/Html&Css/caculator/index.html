@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <style>
+              *{
+                margin: 0px;
+                padding: 0px;
+              }
+              body{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                
+              }
+              .calculator
+              {
+                 width: 500px;
+                 height: 500px;
+                 background-color: bisque;
+                 border: 2px solid black;
+                 margin-top: 70px;
+              }
+              .nav
+              {
+                width: 500px;
+                height: 60px;
+                background-color: white;  
+                /* box-sizing: border-box; */
+              }
+              #result
+              {
+                width: 400px;
+                height: 80px;
+                outline: none;
+                border-radius: 0px;
+                border:none;
+                background:white;
+                font-size: 30px;
+              }
+              #AC
+              {
+                width: 100px;
+                height: 80px;
+                background: hsl(153, 54%, 47%);
+                border:none;
+                outline: none;
+                font-size: 30px;
+              }
+              .left
+              {
+                width: 400px; 
+                height:440px ;
+                background-color: black;
+                float: left;
+                display: flex;
+                flex-wrap: wrap;
+              }
+              .left input
+              {
+                width: calc(400px/3);
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin:0px;
+                color: white;
+                font-size: 30px;
+                background-color: black;
+                border: none;
+                outline: none;
+              }
+              .right    
+              {
+                width: 100px; 
+                height:440px ;
+                background-color: #333737;
+                float: left;
+              }
+              .right input
+              {
+                 width: 100px;
+                 height: calc(440px/4);
+                 border:none;
+                 outline: none;
+                 font-size: 30px;
+                 background-color: hsl(180, 2%, 37%);
+                 color: white;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+
+              }
+    </style>
+</head>
+<body>
+    <h1 style="margin-top: 20px; font-size: 40px;">Basic Calculator</h1>
+   <div class="calculator">
+        <div class="nav">
+            <input type="text" id="result" readonly><input id="AC" type="button" value="AC" onclick="clearResult()">
+        </div>
+        <div class="left">
+            <input type="button" value="1" onclick="appendToResult(1)">
+            <input type="button" value="2" onclick="appendToResult(2)">
+            <input type="button" value="3" onclick="appendToResult(3)">
+           
+         
+            <input type="button" value="4" onclick="appendToResult(4)">
+            <input type="button" value="5" onclick="appendToResult(5)">
+            <input type="button" value="6" onclick="appendToResult(6)">
+           
+            
+            <input type="button" value="7" onclick="appendToResult(7)">
+            <input type="button" value="8" onclick="appendToResult(8)">
+            <input type="button" value="9" onclick="appendToResult(9)">
+
+            <input type="button" value="." onclick="appendToResult('.')">
+            <input type="button" value="0" onclick="appendToResult(0)">
+            <input type="button" value="=" onclick="calculateResult()">
+            
+        </div>
+        <div class="right">
+            <input type="button" value="+" onclick="appendToResult('+')">
+            <input type="button" value="-" onclick="appendToResult('-')">
+            <input type="button" value="*" onclick="appendToResult('*')">
+            <input type="button" value="/" onclick="appendToResult('/')">
+        </div>
+    </div>
+    <script>
+        function appendToResult(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculateResult() {
+            const result = eval(document.getElementById("result").value);
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
+</html>
